@@ -61,3 +61,29 @@ let nums1 = [1,2]
 let nums2 = [3,4,7,8]
 
 let tt = findMedianSortedArrays(nums1, nums2)
+
+func setZeros(row: Int, col: Int, matrix: inout [[Int]]) {
+    
+}
+
+func setZeroes(_ matrix: inout [[Int]]) {
+    let n = matrix[0].count, m = matrix.count
+    var i = 0
+    while i < n {
+        var j = 0
+        while j < m {
+            if matrix[i][j] == 0 {
+                setZeros(row: i, col: j, matrix: &matrix)
+                i += 1
+                break
+            }
+            j += 1
+        }
+        i += 1
+    }
+}
+
+
+var arr = [[1,1,1],[1,0,1],[1,1,1]]
+
+setZeroes(&arr)
